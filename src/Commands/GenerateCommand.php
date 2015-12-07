@@ -18,7 +18,11 @@ class GenerateCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $output->writeln("asdf");
+        $baseDir = dirname(dirname(__FILE__));
+        $loader = new \Twig_Loader_Filesystem($baseDir. '/../app/Resources/templates/');
+        $twig = new \Twig_Environment($loader);
+
+        $output->writeln($twig->render('basic.html.twig', ['the' => 'variables', 'go' => 'here']));
     }
 }
 
