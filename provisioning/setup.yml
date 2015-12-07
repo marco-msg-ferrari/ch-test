@@ -6,5 +6,8 @@
     - name: update apt cache
       apt: update_cache=yes
   roles:
+    - { role: git , when: "env in ['local', 'dev']" }
+    - { role: nodejs , when: "env in ['local', 'dev']" }
+    - { role: bower , when: "env in ['local', 'dev']" }
     - { role: php , when: "env in ['local', 'dev', 'pre', 'prod']" }
     - { role: composer , when: "env in ['local', 'dev', 'pre', 'prod']" }

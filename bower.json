@@ -1,0 +1,16 @@
+{
+  "name": "MsgPresentation",
+  "homepage": "https://github.com/marco-msg-ferrari/ch-test",
+  "description": "Presentation Test",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "reveal.js": "~3.2.0"
+  }
+}

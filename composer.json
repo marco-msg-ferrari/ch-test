@@ -9,5 +9,16 @@
         "symfony/console": "^3.0",
         "twig/twig": "^1.23",
         "league/flysystem": "^1.0"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@bowerInstall"
+        ],
+        "post-update-cmd": [
+            "@bowerInstall"
+        ],
+        "bowerInstall": [
+            "bower install"
+        ]
     }
 }
