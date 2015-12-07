@@ -14,17 +14,20 @@
     "require-dev": {
         "behat/behat": "^3.0",
         "behat/mink-extension": "^2.1",
-        "behat/mink-goutte-driver": "~1.2"
+        "behat/mink-goutte-driver": "~1.2",
+        "phpunit/phpunit": "^4.8"
     },
     "config": {
         "bin-dir": "bin/"
     },
     "scripts": {
         "post-install-cmd": [
-            "@bowerInstall"
+            "@bowerInstall",
+            "@test"
         ],
         "post-update-cmd": [
-            "@bowerInstall"
+            "@bowerInstall",
+            "@test"
         ],
         "bowerInstall": [
             "bower install"
@@ -32,9 +35,16 @@
         "generate": [
             "./app/generate.php presentation:dump"
         ],
+        "phpunit": [
+            "bin/phpunit"
+        ],
+        "behat": [
+            "bin/behat"
+        ],
         "test": [
             "@generate",
-            "bin/behat"
+            "@phpunit",
+            "@behat"
         ]
     }
 }
