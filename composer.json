@@ -7,6 +7,7 @@
 
     "require": {
         "symfony/console": "^3.0",
-        "twig/twig": "^1.23"
+        "twig/twig": "^1.23",
+        "league/flysystem": "^1.0"
     }
 }

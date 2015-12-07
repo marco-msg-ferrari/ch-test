@@ -5,6 +5,8 @@ namespace Msg\Commands;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use League\Flysystem\Filesystem;
+use League\Flysystem\Adapter\Local;
 
 class GenerateCommand extends Command
 {
@@ -22,7 +24,14 @@ class GenerateCommand extends Command
         $loader = new \Twig_Loader_Filesystem($baseDir. '/../app/Resources/templates/');
         $twig = new \Twig_Environment($loader);
 
-        $output->writeln($twig->render('basic.html.twig', ['the' => 'variables', 'go' => 'here']));
+        $adapter = new Local($baseDir. '/../web');
+        $filesystem = new Filesystem($adapter);
+        $filesystem->put(
+            'index.html',
+            $twig->render('basic.html.twig', ['the' => 'variables'])
+        );
+
+        $output->writeln('done');
     }
 }
 
