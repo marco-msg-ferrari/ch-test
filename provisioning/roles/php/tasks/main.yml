@@ -1,0 +1,6 @@
+---
+- name: Ensure php is installed.
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - php5
+    - php5-cli
