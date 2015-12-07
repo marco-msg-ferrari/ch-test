@@ -21,14 +21,6 @@
         "bin-dir": "bin/"
     },
     "scripts": {
-        "post-install-cmd": [
-            "@bowerInstall",
-            "@test"
-        ],
-        "post-update-cmd": [
-            "@bowerInstall",
-            "@test"
-        ],
         "bowerInstall": [
             "bower install"
         ],
