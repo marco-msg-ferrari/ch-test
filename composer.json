@@ -6,9 +6,17 @@
     },
 
     "require": {
-        "symfony/console": "^3.0",
+        "symfony/console": "^2.0",
         "twig/twig": "^1.23",
         "league/flysystem": "^1.0"
+    },
+    "require-dev": {
+        "behat/behat": "^3.0",
+        "behat/mink-extension": "^2.1",
+        "behat/mink-goutte-driver": "~1.2"
+    },
+    "config": {
+        "bin-dir": "bin/"
     },
     "scripts": {
         "post-install-cmd": [
@@ -19,6 +27,13 @@
         ],
         "bowerInstall": [
             "bower install"
+        ],
+        "generate": [
+            "./app/generate.php presentation:dump"
+        ],
+        "test": [
+            "@generate",
+            "bin/behat"
         ]
     }
 }

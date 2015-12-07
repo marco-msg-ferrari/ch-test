@@ -28,10 +28,10 @@ class GenerateCommand extends Command
         $filesystem = new Filesystem($adapter);
         $filesystem->put(
             'index.html',
-            $twig->render('basic.html.twig', ['title' => 'presentation test'])
+            $twig->render('basic.html.twig', ['title' => 'Presentation Test'])
         );
 
-        $output->writeln('done');
+        $output->writeln('Success');
     }
 }
 

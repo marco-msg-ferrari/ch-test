@@ -1,0 +1,3 @@
+---
+- name: Install Zombie
+  npm: name=zombie global=yes

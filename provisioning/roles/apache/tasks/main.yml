@@ -1,0 +1,19 @@
+---
+- include: setup.yml
+
+- name: Add apache vhosts configuration
+  template: >
+    src=vhosts_{{ env }}.conf
+    dest={{ apache_conf_path }}/httpd-{{ project_name }}.conf
+    owner=root group=root mode=644
+  notify: restart apache
+  when: apache_create_vhosts
+
+- name: Ensure Apache is started and enabled on boot
+  service: >
+    name={{ apache_daemon }}
+    state=started
+    enabled=yes
+
+- name: Deactivate default vhost
+  command: a2dissite 000-default
