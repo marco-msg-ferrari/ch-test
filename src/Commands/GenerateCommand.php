@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use League\Flysystem\Filesystem;
 use League\Flysystem\Adapter\Local;
+use Msg\Model\DataModel;
 
 class GenerateCommand extends Command
 {
@@ -24,11 +25,15 @@ class GenerateCommand extends Command
         $loader = new \Twig_Loader_Filesystem($baseDir. '/../app/Resources/templates/');
         $twig = new \Twig_Environment($loader);
 
+
+        $baseDirAdapter = new Local($baseDir. '/../');
+        $presentationData = new DataModel(new Filesystem($baseDirAdapter));
+
         $adapter = new Local($baseDir. '/../web');
         $filesystem = new Filesystem($adapter);
         $filesystem->put(
             'index.html',
-            $twig->render('basic.html.twig', ['title' => 'Presentation Test'])
+            $twig->render('basic.html.twig', ['pres' => $presentationData->getPresentation()])
         );
 
         $output->writeln('Success');
