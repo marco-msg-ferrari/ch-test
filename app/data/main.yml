@@ -1,4 +1,7 @@
 presentation:
     title: "Presentation Test"
-    chapters:
-        - chpter1
+    sections:
+        - menu
+        - intro
+        - photo2
+        - photo

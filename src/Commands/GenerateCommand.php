@@ -2,6 +2,8 @@
 
 namespace Msg\Commands;
 
+use Msg\Repository\PresentationRepository;
+use Msg\Repository\SectionRepository;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -27,13 +29,15 @@ class GenerateCommand extends Command
 
 
         $baseDirAdapter = new Local($baseDir. '/../');
-        $presentationData = new DataModel(new Filesystem($baseDirAdapter));
+        $genericFS = new Filesystem($baseDirAdapter);
+        $sectionRepository = new SectionRepository($genericFS);
+        $pres = new PresentationRepository($genericFS, $sectionRepository);
 
         $adapter = new Local($baseDir. '/../web');
         $filesystem = new Filesystem($adapter);
         $filesystem->put(
             'index.html',
-            $twig->render('basic.html.twig', ['pres' => $presentationData->getPresentation()])
+            $twig->render('basic.html.twig', ['pres' => $pres->get()])
         );
 
         $output->writeln('Success');
