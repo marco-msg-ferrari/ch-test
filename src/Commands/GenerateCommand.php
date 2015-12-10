@@ -9,7 +9,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use League\Flysystem\Filesystem;
 use League\Flysystem\Adapter\Local;
-use Msg\Model\DataModel;
 
 class GenerateCommand extends Command
 {
