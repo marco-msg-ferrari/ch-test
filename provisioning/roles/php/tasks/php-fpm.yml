@@ -10,10 +10,13 @@
   notify: restart php7-fpm
 
 - name: ensure timezone is set in fpm php.ini
-  lineinfile: dest=/etc/php7/fpm/php.ini
-              regexp='date.timezone ='
-              line='date.timezone = {{ server.timezone }}'
+  lineinfile:
+    dest=/etc/php7/fpm/php.ini
+    regexp='date.timezone ='
+    line='date.timezone = {{ server.timezone }}'
+
 - name: enabling opcache
-  lineinfile: dest=/etc/php7/fpm/php.ini
-              regexp=';?opcache.enable=\d'
-              line='opcache.enable=1'
+  lineinfile:
+    dest=/etc/php7/fpm/php.ini
+    regexp=';?opcache.enable=\d'
+    line='opcache.enable=1'
