@@ -17,9 +17,13 @@ class DataModel
 
     public function getPresentation(): array
     {
-        $yaml = new Parser();
+        $parser = new Parser();
         try {
-            $value = $yaml->parse($this->filesystem->read('app/data/main.yml'));
+            $yml = $this->filesystem->read('app/data/main.yml');
+            if (!$yml) {
+                throw new \Exception('Not a alid yaml');
+            }
+            $value = $parser->parse($yml);
         } catch (ParseException $e) {
             printf("Unable to parse the YAML string: %s", $e->getMessage());
         }
