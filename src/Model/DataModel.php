@@ -3,7 +3,6 @@
 namespace Msg\Model;
 
 use League\Flysystem\Filesystem;
-use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Parser;
 
 class DataModel
@@ -18,15 +17,12 @@ class DataModel
     public function getPresentation(): array
     {
         $parser = new Parser();
-        try {
-            $yml = $this->filesystem->read('app/data/main.yml');
-            if (!$yml) {
-                throw new \Exception('Not a alid yaml');
-            }
-            $value = $parser->parse($yml);
-        } catch (ParseException $e) {
-            printf("Unable to parse the YAML string: %s", $e->getMessage());
+
+        $yml = $this->filesystem->read('app/data/main.yml');
+        if ($yml === false) {
+            throw new \Exception('Not a valid file');
         }
+        $value = $parser->parse($yml);
 
         return $value['presentation'];
     }
