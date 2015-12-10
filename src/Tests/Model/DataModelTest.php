@@ -7,7 +7,8 @@ use Prophecy\Argument;
 
 class DataModelTest extends \PHPUnit_Framework_TestCase
 {
-    public function testGetPresentation() {
+    public function testGetPresentation()
+    {
 
         $filesystem = $this->prophesize('League\Flysystem\Filesystem');
         $testYml = "presentation:\n    title: 'Test'\n    chapters:\n        - chapter1";

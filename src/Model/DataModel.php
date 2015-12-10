@@ -10,11 +10,13 @@ class DataModel
 {
     protected $filesystem;
 
-    public function __construct(Filesystem $filesystem) {
+    public function __construct(Filesystem $filesystem)
+    {
         $this->filesystem = $filesystem;
     }
 
-    public function getPresentation(): array {
+    public function getPresentation(): array
+    {
         $yaml = new Parser();
         try {
             $value = $yaml->parse($this->filesystem->read('app/data/main.yml'));

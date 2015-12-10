@@ -39,4 +39,3 @@ class GenerateCommand extends Command
         $output->writeln('Success');
     }
 }
-
