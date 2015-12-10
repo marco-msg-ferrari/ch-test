@@ -1,4 +1,7 @@
 {
+    "name": "CH Test",
+    "description": "Presentation test project",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Msg\\": "src/"

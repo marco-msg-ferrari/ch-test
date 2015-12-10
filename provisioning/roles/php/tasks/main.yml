@@ -22,3 +22,4 @@
   when: php.packages is defined
 
 - include: configure.yml
+
