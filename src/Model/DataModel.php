@@ -23,6 +23,7 @@ class DataModel
             throw new \Exception('Not a valid file');
         }
         $value = $parser->parse($yml);
+        $value = '';
 
         return $value['presentation'];
     }
