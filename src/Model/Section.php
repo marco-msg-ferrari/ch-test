@@ -13,6 +13,28 @@ class Section
     protected $title;
     protected $content;
     protected $img;
+    protected $subSections;
+
+    public function __construct()
+    {
+        $this->subSections = new \ArrayObject();
+    }
+
+    /**
+     * @return \ArrayObject
+     */
+    public function getSubSections()
+    {
+        return $this->subSections;
+    }
+
+    /**
+     * @param Section $subSection
+     */
+    public function addSubSections(Section $subSection)
+    {
+        $this->subSections->append($subSection);
+    }
 
     /**
      * @return mixed

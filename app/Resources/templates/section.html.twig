@@ -1,0 +1,20 @@
+<section>
+  {% if sec.getTitle %}
+  <h1>{{ sec.getTitle }}</h1>
+  {% endif %}
+  {% if sec.getImg %}
+    <img src="imgs/{{ sec.getImg }}">
+  {% endif %}
+  {% if sec.getType == 'list' %}
+  <ul>
+    {% for cont  in sec.getContent %}
+      <li>{{ cont }}</li>
+    {%  endfor %}
+  </ul>
+  {% else %}
+    {{ sec.getContent }}
+  {% endif %}
+  {% for subsec in sec.getSubSections %}
+    {% include 'subsection.html.twig' with {'subsec': subsec} %}
+  {% endfor %}
+</section>

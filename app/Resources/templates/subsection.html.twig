@@ -1,0 +1,17 @@
+<section>
+  {% if subsec.getTitle %}
+  <h1>{{ subsec.getTitle }}</h1>
+  {% endif %}
+  {% if subsec.getImg %}
+    <img src="imgs/{{ subsec.getImg }}">
+  {% endif %}
+  {% if subsec.getType == 'list' %}
+  <ul>
+    {% for cont  in subsec.getContent %}
+      <li>{{ cont }}</li>
+    {%  endfor %}
+  </ul>
+  {% else %}
+    {{ subsec.getContent }}
+  {% endif %}
+</section>

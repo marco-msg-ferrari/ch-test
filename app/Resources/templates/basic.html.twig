@@ -8,25 +8,9 @@
   <div class="slides">
     <section>
       <h1>{{ pres.getTitle }}</h1>
-      Single Horizontal Slide</section>
+    </section>
     {% for sec in pres.getSections %}
-      <section>
-        {% if sec.getTitle %}
-        <h1>{{ sec.getTitle }}</h1>
-        {% endif %}
-        {% if sec.getImg %}
-          <img src="imgs/{{ sec.getImg }}">
-        {% endif %}
-        {% if sec.getType == 'list' %}
-        <ul>
-          {% for cont  in sec.getContent %}
-            <li>{{ cont }}</li>
-          {%  endfor %}
-        </ul>
-        {% else %}
-          {{ sec.getContent }}
-        {% endif %}
-      </section>
+      {% include 'section.html.twig' with {'sec': sec} %}
     {% endfor %}
   </div>
 </div>
