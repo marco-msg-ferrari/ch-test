@@ -8,3 +8,7 @@ Marco Ferrari Presentation Test
 
 -------------------------------
 This is a test project
+
+It was used for a PHPMad talk 
+
+[slides](https://docs.google.com/presentation/d/1HtjN22rBEJ0c4bCmam4svsm0r6WYDo0v6Vb42hE0xwA/edit?usp=sharing)
