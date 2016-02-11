@@ -12,7 +12,7 @@ use Msg\Model\Section;
 
 class SectionRepository extends YamlRepository
 {
-    public function get(\string $sectionName): Section
+    public function get(string $sectionName): Section
     {
         $sectionData = $this->getFromYml($sectionName. '.yml');
         $sec = $this->createSection($sectionData);
