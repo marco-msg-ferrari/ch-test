@@ -22,7 +22,7 @@ class YamlRepository
         $this->basedir = 'app/data/';
     }
 
-    protected function getFromYml(\string $fileName): array
+    protected function getFromYml(string $fileName): array
     {
         $parser = new Parser();
 

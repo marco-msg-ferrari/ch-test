@@ -30,7 +30,7 @@ class Presentation
     /**
      * @param string $title
      */
-    public function setTitle(\string $title)
+    public function setTitle(string $title)
     {
         $this->title = $title;
     }
